@@ -78,7 +78,6 @@ public class SettingsManager : MonoBehaviour, ISettingsManager, IAsyncInitializa
         Register(VSync = new IndexedParameter(SettingsKeys.VSync, VSyncOptions, 0, ApplyVSync));
         Register(TextureQuality = new IndexedParameter(SettingsKeys.TextureQuality, QualityOptions, 2, ApplyTextureQuality));
         Register(ShadowQuality = new IndexedParameter(SettingsKeys.ShadowQuality, QualityOptions, 2, ApplyShadowQuality));
-        Register(OutputDevice = new IndexedParameter(SettingsKeys.OutputDevice, outputDeviceLabels, 0, ApplyOutputDevice));
     }
 
     private void Register(ISettingsParameter parameter)
