@@ -49,21 +49,25 @@ public class AudioManager : MonoBehaviour, IAudioManager, IAsyncInitializable
     public IEnumerator InitializeAsync()
     {
         yield return new WaitUntil(() => isLoaded);
-
         settingsManager = ServiceLocator.Get<ISettingsManager>();
-
         if (settingsManager != null)
         {
-            settingsManager.OnParametersChanged += ChangeAllVolumeValue;
+            SubscribeVolume(SettingsKeys.MasterVolume);
+            SubscribeVolume(SettingsKeys.MusicVolume);
+            SubscribeVolume(SettingsKeys.SFXVolume);
+            SubscribeVolume(SettingsKeys.UIVolume);
 
-            IndexedParameter outputDeviceParam = settingsManager.GetParameter<IndexedParameter>("OutputDevice");
+            var outputDeviceParam = settingsManager.GetParameter<IndexedParameter>(SettingsKeys.OutputDevice);
             if (outputDeviceParam != null)
-            {
                 outputDeviceParam.OnChanged += ApplyOutputDeviceFromSettings;
-            }
         }
-
         deviceWatchRoutine = StartCoroutine(WatchDeviceListChanges());
+    }
+
+    private void SubscribeVolume(string key)
+    {
+        var p = settingsManager.GetParameter<SettingsParameter<float>>(key);
+        if (p != null) p.OnChanged += ChangeAllVolumeValue;
     }
 
     private void OnDisable()
@@ -72,7 +76,7 @@ public class AudioManager : MonoBehaviour, IAudioManager, IAsyncInitializable
         {
             settingsManager.OnParametersChanged -= ChangeAllVolumeValue;
 
-            IndexedParameter outputDeviceParam = settingsManager.GetParameter<IndexedParameter>("OutputDevice");
+            IndexedParameter outputDeviceParam = settingsManager.GetParameter<IndexedParameter>(SettingsKeys.OutputDevice);
             if (outputDeviceParam != null)
             {
                 outputDeviceParam.OnChanged -= ApplyOutputDeviceFromSettings;
@@ -178,7 +182,6 @@ public class AudioManager : MonoBehaviour, IAudioManager, IAsyncInitializable
             if (currentDriverCount != lastKnownDriverCount)
             {
                 lastKnownDriverCount = currentDriverCount;
-                Debug.Log("[AudioManager] Обнаружено изменение списка аудиоустройств.");
 
                 if (lastAppliedOutputDeviceIndex >= currentDriverCount)
                 {

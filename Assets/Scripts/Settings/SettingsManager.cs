@@ -67,10 +67,10 @@ public class SettingsManager : MonoBehaviour, ISettingsManager, IAsyncInitializa
 
         Register(Language = new IndexedParameter(SettingsKeys.Language, LanguageOptions));
         Register(Sensitivity = new SettingsParameter<float>(SettingsKeys.Sensitivity, 0.5f, v => Mathf.Clamp(v, 0.05f, 1f)));
-        Register(MasterVolume = new SettingsParameter<float>(SettingsKeys.MasterVolume, 1f, v => Mathf.Clamp(v, 0f, 1f),v => AudioListener.volume = v));
-        Register(MusicVolume = new SettingsParameter<float>(SettingsKeys.MusicVolume, 1f, v => Mathf.Clamp(v, 0f, 1f)));
-        Register(SFXVolume = new SettingsParameter<float>(SettingsKeys.SFXVolume, 1f, v => Mathf.Clamp(v, 0f, 1f)));
-        Register(UIVolume = new SettingsParameter<float>(SettingsKeys.UIVolume, 1f, v => Mathf.Clamp(v, 0f, 1f)));
+        Register(MasterVolume = new SettingsParameter<float>(SettingsKeys.MasterVolume, 1f, v => Mathf.Clamp(v, 0f, 2f),v => AudioListener.volume = v));
+        Register(MusicVolume = new SettingsParameter<float>(SettingsKeys.MusicVolume, 1f, v => Mathf.Clamp(v, 0f, 2f)));
+        Register(SFXVolume = new SettingsParameter<float>(SettingsKeys.SFXVolume, 1f, v => Mathf.Clamp(v, 0f, 2f)));
+        Register(UIVolume = new SettingsParameter<float>(SettingsKeys.UIVolume, 1f, v => Mathf.Clamp(v, 0f, 2f)));
         Register(OutputDevice = new IndexedParameter(SettingsKeys.OutputDevice, outputDeviceLabels, 0, ApplyOutputDevice));
         Register(ScreenMode = new IndexedParameter(SettingsKeys.FullscreenMode, ScreenModeOptions, 1, _ => ApplyScreenSettings()));
         Register(ScreenResolution = new IndexedParameter(SettingsKeys.ScreenResolution, resolutionLabels, defaultResolutionIndex, _ => ApplyScreenSettings()));
