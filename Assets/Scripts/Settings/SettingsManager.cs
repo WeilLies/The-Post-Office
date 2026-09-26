@@ -65,19 +65,20 @@ public class SettingsManager : MonoBehaviour, ISettingsManager, IAsyncInitializa
         string[] outputDeviceLabels = OutputDevices.Count > 0 ? OutputDevices.ToArray() : new[] { "Default" };
         string[] fpsLabels = Array.ConvertAll(FpsSteps, fps => fps + "FPS");
 
-        Register(Language = new IndexedParameter("Language", LanguageOptions));
-        Register(Sensitivity = new SettingsParameter<float>("Sensitivity", 0.5f, v => Mathf.Clamp(v, 0.05f, 1f)));
-        Register(MasterVolume = new SettingsParameter<float>("Master", 1f, v => Mathf.Clamp(v, 0f, 1f), v => AudioListener.volume = v));
-        Register(MusicVolume = new SettingsParameter<float>("Music", 1f, v => Mathf.Clamp(v, 0f, 1f)));
-        Register(SFXVolume = new SettingsParameter<float>("SFX", 1f, v => Mathf.Clamp(v, 0f, 1f)));
-        Register(UIVolume = new SettingsParameter<float>("UI", 1f, v => Mathf.Clamp(v, 0f, 1f)));
-        Register(ScreenMode = new IndexedParameter("Fullscreen", ScreenModeOptions, 1, _ => ApplyScreenSettings()));
-        Register(ScreenResolution = new IndexedParameter("Resolution", resolutionLabels, defaultResolutionIndex, _ => ApplyScreenSettings()));
-        Register(FpsLimit = new IndexedParameter("Fps Lock", fpsLabels, GetClosestFpsIndex(120), i => Application.targetFrameRate = FpsSteps[i]));
-        Register(VSync = new IndexedParameter("V-Sync", VSyncOptions, 0, ApplyVSync));
-        Register(TextureQuality = new IndexedParameter("Texture", QualityOptions, 2, ApplyTextureQuality));
-        Register(ShadowQuality = new IndexedParameter("Shadow", QualityOptions, 2, ApplyShadowQuality));
-        Register(OutputDevice = new IndexedParameter("Divice Output", outputDeviceLabels, 0, ApplyOutputDevice));
+        Register(Language = new IndexedParameter(SettingsKeys.Language, LanguageOptions));
+        Register(Sensitivity = new SettingsParameter<float>(SettingsKeys.Sensitivity, 0.5f, v => Mathf.Clamp(v, 0.05f, 1f)));
+        Register(MasterVolume = new SettingsParameter<float>(SettingsKeys.MasterVolume, 1f, v => Mathf.Clamp(v, 0f, 1f),v => AudioListener.volume = v));
+        Register(MusicVolume = new SettingsParameter<float>(SettingsKeys.MusicVolume, 1f, v => Mathf.Clamp(v, 0f, 1f)));
+        Register(SFXVolume = new SettingsParameter<float>(SettingsKeys.SFXVolume, 1f, v => Mathf.Clamp(v, 0f, 1f)));
+        Register(UIVolume = new SettingsParameter<float>(SettingsKeys.UIVolume, 1f, v => Mathf.Clamp(v, 0f, 1f)));
+        Register(OutputDevice = new IndexedParameter(SettingsKeys.OutputDevice, outputDeviceLabels, 0, ApplyOutputDevice));
+        Register(ScreenMode = new IndexedParameter(SettingsKeys.FullscreenMode, ScreenModeOptions, 1, _ => ApplyScreenSettings()));
+        Register(ScreenResolution = new IndexedParameter(SettingsKeys.ScreenResolution, resolutionLabels, defaultResolutionIndex, _ => ApplyScreenSettings()));
+        Register(FpsLimit = new IndexedParameter(SettingsKeys.FPSLock, fpsLabels, GetClosestFpsIndex(120), i => Application.targetFrameRate = FpsSteps[i]));
+        Register(VSync = new IndexedParameter(SettingsKeys.VSync, VSyncOptions, 0, ApplyVSync));
+        Register(TextureQuality = new IndexedParameter(SettingsKeys.TextureQuality, QualityOptions, 2, ApplyTextureQuality));
+        Register(ShadowQuality = new IndexedParameter(SettingsKeys.ShadowQuality, QualityOptions, 2, ApplyShadowQuality));
+        Register(OutputDevice = new IndexedParameter(SettingsKeys.OutputDevice, outputDeviceLabels, 0, ApplyOutputDevice));
     }
 
     private void Register(ISettingsParameter parameter)

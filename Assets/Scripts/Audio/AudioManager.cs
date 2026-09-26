@@ -100,12 +100,11 @@ public class AudioManager : MonoBehaviour, IAudioManager, IAsyncInitializable
 
     private void GetAllSavedVolumes()
     {
-        if (settingsManager == null) { return; }
-
-        masterVolume = settingsManager.GetParametersValue<float>("MasterVolume");
-        musicVolume = settingsManager.GetParametersValue<float>("MusicVolume");
-        SFXVolume = settingsManager.GetParametersValue<float>("SFXVolume");
-        UIVolume = settingsManager.GetParametersValue<float>("UIVolume");
+        if (settingsManager == null) return;
+        masterVolume = settingsManager.GetParametersValue<float>(SettingsKeys.MasterVolume);
+        musicVolume = settingsManager.GetParametersValue<float>(SettingsKeys.MusicVolume);
+        SFXVolume = settingsManager.GetParametersValue<float>(SettingsKeys.SFXVolume);
+        UIVolume = settingsManager.GetParametersValue<float>(SettingsKeys.UIVolume);
     }
 
     private void UpdateAllVolumeValue()
@@ -120,7 +119,8 @@ public class AudioManager : MonoBehaviour, IAudioManager, IAsyncInitializable
     {
         if (settingsManager == null) return;
 
-        IndexedParameter outputDeviceParam = settingsManager.GetParameter<IndexedParameter>("OutputDevice");
+        var outputDeviceParam = settingsManager.GetParameter<IndexedParameter>(SettingsKeys.OutputDevice);
+
         if (outputDeviceParam == null) return;
 
         SetOutputDevice(outputDeviceParam.Index);
@@ -131,7 +131,7 @@ public class AudioManager : MonoBehaviour, IAudioManager, IAsyncInitializable
         FMOD.RESULT result = coreSystem.getNumDrivers(out int numDrivers);
         if (result != FMOD.RESULT.OK || numDrivers == 0)
         {
-            Debug.LogWarning("[AudioManager] Не удалось получить список аудиоустройств или устройства отсутствуют.");
+            Debug.LogWarning("[AudioManager] Failed to retrieve the list of audio devices, or no devices are present.");
             return false;
         }
 
@@ -140,12 +140,11 @@ public class AudioManager : MonoBehaviour, IAudioManager, IAsyncInitializable
         FMOD.RESULT setResult = coreSystem.setDriver(safeIndex);
         if (setResult != FMOD.RESULT.OK)
         {
-            Debug.LogWarning($"[AudioManager] Не удалось переключить устройство вывода на индекс {safeIndex}: {setResult}");
             return false;
         }
 
         lastAppliedOutputDeviceIndex = safeIndex;
-        Debug.Log($"[AudioManager] Аудиоустройство переключено на индекс {safeIndex}.");
+        Debug.Log($"[AudioManager] Divice switched to {safeIndex}.");
         return true;
     }
 

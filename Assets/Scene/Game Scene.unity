@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0e96561f3ed444dafe667efac3b808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SliderSettingControl
-  parameterName: SFX
+  ParameterName: 10
   slider: {fileID: 0}
   minValue: 0
   maxValue: 1
@@ -2542,7 +2542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6808290d3ac8cce45b1c33cda8b0a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSettingControl
-  parameterName: Fullscreen
+  ParameterName: 2
   previousButton: {fileID: 1071325429}
   nextButton: {fileID: 525954333}
   valueLabel: {fileID: 1507646017}
@@ -8292,7 +8292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6808290d3ac8cce45b1c33cda8b0a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSettingControl
-  parameterName: Texture
+  ParameterName: 6
   previousButton: {fileID: 1096770254}
   nextButton: {fileID: 776297002}
   valueLabel: {fileID: 760600447}
@@ -9032,7 +9032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0e96561f3ed444dafe667efac3b808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SliderSettingControl
-  parameterName: Master
+  ParameterName: 8
   slider: {fileID: 0}
   minValue: 0
   maxValue: 1
@@ -9087,7 +9087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6808290d3ac8cce45b1c33cda8b0a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSettingControl
-  parameterName: Language
+  ParameterName: 0
   previousButton: {fileID: 559369242}
   nextButton: {fileID: 900588423}
   valueLabel: {fileID: 2004804640}
@@ -11272,7 +11272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6808290d3ac8cce45b1c33cda8b0a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSettingControl
-  parameterName: FPS Lock
+  ParameterName: 4
   previousButton: {fileID: 574840537}
   nextButton: {fileID: 319803887}
   valueLabel: {fileID: 1530488279}
@@ -11639,7 +11639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6808290d3ac8cce45b1c33cda8b0a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSettingControl
-  parameterName: Divice Output
+  ParameterName: 12
   previousButton: {fileID: 816322733}
   nextButton: {fileID: 1727537631}
   valueLabel: {fileID: 517258840}
@@ -12334,7 +12334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6808290d3ac8cce45b1c33cda8b0a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSettingControl
-  parameterName: Shadow
+  ParameterName: 7
   previousButton: {fileID: 1239062200}
   nextButton: {fileID: 554450739}
   valueLabel: {fileID: 2124720444}
@@ -13438,7 +13438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6808290d3ac8cce45b1c33cda8b0a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSettingControl
-  parameterName: V-Sync
+  ParameterName: 5
   previousButton: {fileID: 291982053}
   nextButton: {fileID: 1071084834}
   valueLabel: {fileID: 1178118360}
@@ -22700,7 +22700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0e96561f3ed444dafe667efac3b808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SliderSettingControl
-  parameterName: UI
+  ParameterName: 11
   slider: {fileID: 0}
   minValue: 0
   maxValue: 1
@@ -22755,7 +22755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6808290d3ac8cce45b1c33cda8b0a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSettingControl
-  parameterName: Resolution
+  ParameterName: 3
   previousButton: {fileID: 571291029}
   nextButton: {fileID: 209221450}
   valueLabel: {fileID: 908648575}
@@ -22938,7 +22938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0e96561f3ed444dafe667efac3b808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SliderSettingControl
-  parameterName: Music
+  ParameterName: 9
   slider: {fileID: 0}
   minValue: 0
   maxValue: 1
@@ -23613,7 +23613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0e96561f3ed444dafe667efac3b808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SliderSettingControl
-  parameterName: Sensitivity
+  ParameterName: 1
   slider: {fileID: 0}
   minValue: 0
   maxValue: 1

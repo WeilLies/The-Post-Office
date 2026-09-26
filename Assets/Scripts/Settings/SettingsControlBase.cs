@@ -2,12 +2,13 @@ using UnityEngine;
 
 public abstract class SettingsControlBase : MonoBehaviour
 {
-    [SerializeField] protected string parameterName;
-
+    [SerializeField] protected SettingsKeys.AllSettingsName ParameterName;
+    protected string parameterName;
     protected ISettingsManager settingsManager;
 
     protected virtual void OnEnable()
     {
+        parameterName = ParameterName.ToString();
         settingsManager = ServiceLocator.Get<ISettingsManager>();
         if (settingsManager == null) return;
 
