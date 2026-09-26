@@ -35,10 +35,10 @@ MonoBehaviour:
   Path: Assets/Content/Audio/AudioProject/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639242469584147818
+  lastModified: 639260462987443098
   FileSizes:
   - Name: Desktop
-    Value: 4732
+    Value: 4314
   Exists: 1
 --- !u!114 &-637053388776845989
 MonoBehaviour:
@@ -91,7 +91,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 7665283964931595106}
   cacheVersion: 131860
-  cacheTime: 639242470021642222
+  cacheTime: 639260462987453094
   SerializableEventsDict:
   - key: snapshot:/Low Reverb
     index: 0
@@ -275,10 +275,10 @@ MonoBehaviour:
   Path: Assets/Content/Audio/AudioProject/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639242469584157798
+  lastModified: 639260462987453094
   FileSizes:
   - Name: Desktop
-    Value: 1316
+    Value: 1274
   Exists: 1
 --- !u!114 &8818875153667467356
 MonoBehaviour:
