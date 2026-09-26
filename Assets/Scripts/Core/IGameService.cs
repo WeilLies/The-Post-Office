@@ -22,12 +22,8 @@ public interface IAudioManager : IGameService
 public interface ISettingsManager : IGameService
 {
     public event Action OnParametersChanged;
-    public int FpsStepsCount { get; }
-    public int FpsStepIndex { get; }
-    public float FpsLimit { get; }
     public T GetParameter<T>(string name) where T : class;
     public T GetParametersValue<T>(string name);
-    public void StepVSync(int direction);
     public void ResetToDefaults();
     public void Save();
 }
